@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from database import init_db, create_session, get_all_sessions, get_session_by_id, update_session, delete_session
+from stats import get_weekly_summary, get_streak, get_peak_hours
 app = Flask(__name__)
 
 @app.route("/sessions", methods=["POST"])
@@ -47,7 +48,7 @@ def edit_session(session_id):
         return jsonify({"error": "Session not found"}), 404
     return jsonify({"message": "Session updated"}), 200
 
-app.route("/sessions/<int:session_id>", methods=["DELETE"])
+@app.route("/sessions/<int:session_id>", methods=["DELETE"])
 def remove_session(session_id):
     deleted = delete_session(session_id)
 
@@ -55,6 +56,20 @@ def remove_session(session_id):
         return jsonify({"error": "Session not found"}), 404
 
     return jsonify({"message": "Session deleted"}), 200
+
+@app.route("/stats/summary", methods=["GET"])
+def weekly_summary():
+    return jsonify(get_weekly_summary()), 200
+
+
+@app.route("/stats/streak", methods=["GET"])
+def streak():
+    return jsonify(get_streak()), 200
+
+
+@app.route("/stats/peak-hours", methods=["GET"])
+def peak_hours():
+    return jsonify(get_peak_hours()), 200
 
 if __name__ == "__main__":
     init_db()

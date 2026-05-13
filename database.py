@@ -93,9 +93,9 @@ def get_session_by_id(session_id):
 def update_session(session_id, data):
     conn = get_connection()
 
-    allowed_fields = ["project", "session_type", "duration_mins", "energy_level", "mood", "shipped" "notes"]
+    allowed_fields = ["project", "session_type", "duration_mins", "energy_level", "mood", "shipped", "notes"]
 
-    fields = [f'[{key}]' for key in data if key in allowed_fields]
+    fields = [f'{key} = ?' for key in data if key in allowed_fields]
     values = [data[key] for key in data if key in allowed_fields]
 
     if not fields:

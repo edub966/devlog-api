@@ -1,0 +1,25 @@
+### GET all sessions
+GET http://127.0.0.1:5000/sessions
+
+### GET stats summary
+GET http://127.0.0.1:5000/stats/summary
+
+### GET streak
+GET http://127.0.0.1:5000/stats/streak
+
+### GET peak hours
+GET http://127.0.0.1:5000/stats/peak-hours
+
+### May 13 - devlog-api
+POST http://127.0.0.1:5000/sessions
+Content-Type: application/json
+
+{
+  "project": "devlog-api",
+  "session_type": "focus",
+  "duration_mins": 180,
+  "energy_level": 4,
+  "mood": "flow",
+  "shipped": "built stats.py and all endpoints working",
+  "notes": "streak logic was the trickiest part"
+}
