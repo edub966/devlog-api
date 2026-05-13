@@ -77,6 +77,18 @@ def get_all_sessions(filters=None):
     conn.close()
     return result
 
+def get_session_by_id(session_id):
+    conn = get_connection()
+
+    row = conn.execute(
+        "SELECT * FROM sessions WHERE id = ?",
+        (session_id,)
+    ).fetchone()
+
+    result = dict(row) if row else None
+    conn.close()
+    return result
+
 
 def update_session(session_id, data):
     conn = get_connection()
