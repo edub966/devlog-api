@@ -37,3 +37,17 @@ Content-Type: application/json
   "shipped": "built full backend and frontend",
   "notes": "figuring out JWT keys was difficult"
 }
+
+### May 15 - auth system and website
+POST http://127.0.0.1:5000/sessions
+Content-Type: application/json
+
+{
+  "project": "auth-system and website",
+  "session_type": "scattered",
+  "duration_mins": 120,
+  "energy_level": 5,
+  "mood": "alert",
+  "shipped": "polished auth frontend and added rate limiting + httpOnly cookie. redesigned portfolio website",
+  "notes": "all over the place tonight"
+}
