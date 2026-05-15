@@ -23,3 +23,17 @@ Content-Type: application/json
   "shipped": "built stats.py and all endpoints working",
   "notes": "streak logic was the trickiest part"
 }
+
+### May 14 - auth-system
+POST http://127.0.0.1:5000/sessions
+Content-Type: application/json
+
+{
+  "project": "auth-system",
+  "session_type": "focus",
+  "duration_mins": 60,
+  "energy_level": 3,
+  "mood": "flow",
+  "shipped": "built full backend and frontend",
+  "notes": "figuring out JWT keys was difficult"
+}
